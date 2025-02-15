@@ -1,0 +1,36 @@
+<section id="daftar-container">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <% data.articles.forEach(item => { %>
+            <a href="/<%= item.link %>" class="group hover:scale-105 bg-white duration-500 dark:bg-neutral-900 rounded group-hover:shadow-md shadow-sm">
+                <article class="relative">
+                    <img src="<%= item.img %>" alt="<%= item.title %>" class="w-full aspect-[16/9] object-cover rounded-t" onerror="this.onerror=null; this.src='/image/no-image.jpg';">
+                    <div class="p-4">
+                        <h2 class="group-hover:text-cyan-600 duration-500 font-semibold text-xl line-clamp-2"><%= item.title %></h2>
+                        <p class="mt-2 line-clamp-2"><%= item.excerpt %></p>
+                    </div>
+                    <span class="absolute left-2 top-2 bg-[#00b0ea] dark:bg-[#0296c7] duration-500 p-1 px-2 text-white text-sm rounded"><%= item.time %></span>
+                </article>
+            </a>
+        <% }); %>
+    </div>
+
+    <div class="flex justify-center items-center gap-4 mt-6">
+        <% if (data.page > 1) { %>
+            <button hx-get="/data/pencarian?q=<%= q %>&page=<%= data.page - 1 %>" 
+                hx-target="#daftar-container" 
+                hx-swap="outerHTML"
+                class="btn-prev bg-[#00b0ea] dark:bg-[#0296c7] px-4 py-2 rounded text-white hover:bg-[#0296c7] dark:hover:bg-[#00b0ea]">
+                Sebelumnya
+            </button>
+        <% } %>
+
+        <% if (data.articles.length > 0) { %>
+            <button hx-get="/data/pencarian?q=<%= q %>&page=<%= data.page + 1 %>" 
+                hx-target="#daftar-container" 
+                hx-swap="outerHTML"
+                class="btn-next bg-[#00b0ea] dark:bg-[#0296c7] px-4 py-2 rounded text-white hover:bg-[#0296c7] dark:hover:bg-[#00b0ea]">
+                Selanjutnya
+            </button>
+        <% } %>
+    </div>
+</section>

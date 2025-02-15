@@ -1,0 +1,14 @@
+<section id="berita-container">
+	<article class="bg-white duration-500 dark:bg-neutral-900 rounded shadow-sm p-5 md:p-6">
+		<img src="<%= data.img %>" alt="<%= data.title %>" class="w-full aspect-[16/9] object-cover rounded" onerror="this.onerror=null; this.src='/image/no-image.jpg';">
+		<span class="mt-2 text-xs italic">
+			<%= data.caption %>
+		</span>
+		<h2 class="mt-6 font-semibold text-lg">
+			<%= data.title %>
+		</h2>
+		<div id="artikel" class="mt-4">
+			<%- data.content %>
+		</div>
+	</article>
+</section>

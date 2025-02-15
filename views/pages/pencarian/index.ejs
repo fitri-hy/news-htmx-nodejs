@@ -1,0 +1,11 @@
+<div id="pencarian" 
+     hx-get="/data/pencarian?q=<%= q %>" 
+     hx-trigger="load" 
+     hx-target="#pencarian" 
+     hx-swap="outerHTML">
+    
+    <div class="flex flex-col justify-center items-center py-20">
+        <div class="animate-spin rounded-full h-20 w-20 border-t-4 border-[#00b0ea] border-solid"></div>
+        <h2 class="text-xl font-semibold mt-9">Memuat Berita !!</h2>
+    </div>
+</div>
