@@ -4,10 +4,17 @@
 		<span class="mt-2 text-xs italic">
 			<%= data.caption %>
 		</span>
-		<h2 class="mt-6 font-semibold text-lg">
-			<%= data.title %>
-		</h2>
-		<div id="artikel" class="mt-4">
+		<div class="flex flex-col gap-2 py-6">
+			<div>
+				<span class="bg-[#00b0ea] dark:bg-[#0296c7] duration-500 p-1 px-2 text-white rounded text-xs">
+					<%= data.time %>
+				</span>
+			</div>
+			<h2 class="font-semibold text-xl md:text-3xl">
+				<%= data.title %>
+			</h2>
+		</div>
+		<div id="artikel">
 			<%- data.content %>
 		</div>
 	</article>

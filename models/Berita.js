@@ -14,7 +14,7 @@ exports.Berita = async (slug) => {
         const title = $(".wrap__article-detail-title h1").text().trim();
         const time = $(".wrap__article-detail-info .text-secondary").text().trim();
         const img = $(".wrap__article-detail-image img").attr("src");
-        const caption = $(".wrap__article-detail-image figcaption").text().trim();
+        const caption = $(".wrap__article-detail-image figcaption").text().trim().replace(/ANTARA/g, "HTMX");
 
         let content = $(".wrap__article-detail-content").html() || "";
 
