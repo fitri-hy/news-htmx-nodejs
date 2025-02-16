@@ -35,3 +35,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+// Modal Search
+document.getElementById("openSearchModal").addEventListener("click", function() {
+    document.getElementById("searchModal").classList.remove("hidden");
+});
+
+document.getElementById("closeSearchModal").addEventListener("click", function() {
+    document.getElementById("searchModal").classList.add("hidden");
+});
+
+document.getElementById("searchModal").addEventListener("click", function(event) {
+    if (event.target === this) {
+        this.classList.add("hidden");
+    }
+});

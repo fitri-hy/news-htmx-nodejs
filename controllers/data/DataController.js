@@ -21,6 +21,17 @@ exports.terpopuler = async (req, res) => {
 	});
 };
 
+exports.terpopulerSidebar = async (req, res) => {
+	const category = 'terpopuler';
+    const page = parseInt(req.query.page) || 1;
+    const data = await DataBerita.Terpopuler(page);
+    res.render("data/daftar-sidebar", { 
+		data, 
+		category,
+		layout: false 
+	});
+};
+
 exports.viral = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const data = await DataBerita.Viral(page);

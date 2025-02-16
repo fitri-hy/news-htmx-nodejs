@@ -30,6 +30,7 @@ router.get("/berita/:id/:slug", BeritaController.index);
 const DataController = require("../controllers/data/DataController");
 router.get("/data/terkini", DataController.terkini);
 router.get("/data/terpopuler", DataController.terpopuler);
+router.get("/data/terpopuler-sidebar", DataController.terpopulerSidebar);
 router.get("/data/viral", DataController.viral);
 router.get("/data/pilihan", DataController.pilihan);
 router.get("/data/pencarian", DataController.pencarian);

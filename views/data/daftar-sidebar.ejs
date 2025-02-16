@@ -1,0 +1,15 @@
+<section id="daftar-container">
+    <div class="grid grid-cols-1 gap-4">
+        <% data.articles.slice(0, 6).forEach(item => { %>
+			<a href="/<%= item.link %>" class="group hover:scale-105">
+				<article class="relative">
+					<img src="<%= item.img %>" alt="<%= item.title %>" class="w-full aspect-[16/9] object-cover rounded-t" onerror="this.onerror=null; this.src='/image/no-image.jpg';">
+					<div class="px-2 mt-2">
+						<h2 class="group-hover:text-cyan-600 duration-500 font-semibold line-clamp-2"><%= item.title %></h2>
+					</div>
+					<span class="absolute left-2 top-2 bg-[#00b0ea] dark:bg-[#0296c7] duration-500 p-1 px-2 text-white text-sm rounded"><%= item.time %></span>
+				</article>
+			</a>
+        <% }); %>
+    </div>
+</section>

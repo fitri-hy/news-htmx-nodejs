@@ -13,6 +13,26 @@
     <main class="p-4 md:p-6 container m-auto">
         <%- include(layout) %>
     </main>
+    <div id="searchModal" class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center">
+        <div class="bg-white dark:bg-neutral-900 px-6 py-9 rounded-lg shadow-lg w-full max-w-lg">
+            <div class="relative flex justify-between items-center">
+                <h2 class="text-xl font-semibold">Pencarian</h2>
+                <button id="closeSearchModal" class="absolute top-0 right-0 text-rose-500 dark:text-rose-600 hover:text-rose-600 dark:hover:text-rose-700 duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-9">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>                      
+                </button>
+            </div>
+            <form action="/pencarian" class="flex gap-2 items-center mt-6">
+                <input name="q" type="text" class="w-full p-2 bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded focus:outline-none focus:ring-2 focus:[#00b0ea]" placeholder="Cari berita...">
+                <button class="g-[#00b0ea] dark:bg-[#0296c7] hover:bg-[#0296c7] dark:hover:bg-[#00b0ea] text-white p-2 rounded flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
     <script src="/js/app.js"></script>
 </body>
 </html>

@@ -45,13 +45,13 @@
 }
 
 #artikel a {
-    color: #7621ff !important;
+    color: #0296c7 !important;
     text-decoration: none !important;
     transition: color 0.3s ease !important;
 }
 
 #artikel a:hover {
-    color: #6100fc !important;
+    color: #0296c7 !important;
     text-decoration: underline !important;
 }
 
