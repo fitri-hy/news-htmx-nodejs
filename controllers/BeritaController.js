@@ -10,7 +10,7 @@ exports.index = async (req, res) => {
     const data = await Berita.Berita(fullSlug);
 	
 	res.render("layouts/main", { 
-		title: data.title, 
+		title: `${data.title} | HTMX`, 
 		slug: `${id}/${slug}`,
 		layout: "../pages/berita/index" 
 	});

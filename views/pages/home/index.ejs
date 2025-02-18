@@ -1,1 +1,83 @@
-<h2>Welcome to HTMX Framework</h2>
+<div class="w-full flex flex-col lg:flex-row gap-4">
+	<div class="w-full overflow-hidden">
+        <div class="relative">
+			<div id="slider" class="flex transition-transform duration-500">
+				<% data.articles.slice(0, 6).forEach(item => { %>
+					<a href="/<%= item.link %>" class="group hover:scale-105 shadow-sm flex-shrink-0 w-full bg-white dark:bg-neutral-900">
+						<article class="relative">
+							<img src="<%= item.img %>" alt="<%= item.title %>" class="w-full aspect-[16/9] object-cover rounded-t" onerror="this.onerror=null; this.src='/image/no-image.jpg';">
+							<div class="p-4">
+								<h2 class="group-hover:text-cyan-600 duration-500 font-semibold text-xl line-clamp-2"><%= item.title %></h2>
+								<p class="mt-2 line-clamp-2"><%= item.excerpt %></p>
+							</div>
+							<span class="absolute left-2 top-2 bg-[#00b0ea] dark:bg-[#0296c7] duration-500 p-1 px-2 text-white text-sm rounded"><%= item.time %></span>
+						</article>
+					</a>
+				<% }); %>
+			</div>
+			<button id="prev" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-[#00b0ea] dark:bg-[#0296c7] text-white p-2 rounded">&#10094;</button>
+			<button id="next" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#00b0ea] dark:bg-[#0296c7] hover:bg-[#0296c7] dark:hover:bg-[#00b0ea] duration-500 text-white p-2 rounded">&#10095;</button>
+		</div>
+		<h2 class="text-xl font-semibold mt-9">Berita Viral</h2>
+		<div class="h-[1px] w-full mb-6 bg-gradient-to-r from-[#00b0ea]/20 via-[#00b0ea] to-[#00b0ea]/20"></div>
+
+		<div id="viral" 
+			 hx-get="/data/viral?page=1" 
+			 hx-trigger="load" 
+			 hx-target="#viral" 
+			 hx-swap="outerHTML">
+			
+			<div class="flex flex-col justify-center items-center py-20">
+				<div class="animate-spin rounded-full h-20 w-20 border-t-4 border-[#00b0ea] border-solid"></div>
+				<h2 class="text-xl font-semibold mt-9">Memuat Berita !!</h2>
+			</div>
+		</div>
+	</div>
+	<aside class="w-full lg:max-w-xs">
+		<div class="bg-white duration-500 dark:bg-neutral-900 rounded shadow-sm p-5 md:p-6">
+			<h2 class="text-xl font-semibold">Berita Terpopuler</h2>
+			<div class="h-[1px] w-full mb-6 bg-gradient-to-r from-[#00b0ea]/20 via-[#00b0ea] to-[#00b0ea]/20"></div>
+
+			<div id="terpopulerSidebar" 
+				hx-get="/data/terpopuler-sidebar" 
+				hx-trigger="load" 
+				hx-target="#terpopulerSidebar" 
+				hx-swap="outerHTML">
+				
+				<div class="flex flex-col justify-center items-center py-20">
+					<div class="animate-spin rounded-full h-20 w-20 border-t-4 border-[#00b0ea] border-solid"></div>
+					<h2 class="text-xl font-semibold mt-9">Memuat Berita !!</h2>
+				</div>
+			</div>
+		</div>
+    </aside>
+</div>
+
+<script>
+        const slider = document.getElementById('slider');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        let index = 0;
+        const totalSlides = <%= data.articles.slice(0, 6).length %>;
+        
+        function updateSlider() {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+        
+        next.addEventListener('click', () => {
+            index = (index + 1) % totalSlides;
+            updateSlider();
+        });
+        
+        prev.addEventListener('click', () => {
+            index = (index - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        });
+        
+        function autoSlide() {
+            index = (index + 1) % totalSlides;
+            updateSlider();
+        }
+        
+        setInterval(autoSlide, 3000);
+    </script>

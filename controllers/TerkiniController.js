@@ -1,6 +1,6 @@
 exports.index = (req, res) => {
 	res.render("layouts/main", { 
-		title: "Terkini Page", 
+		title: "Terkini | HTMX", 
 		layout: "../pages/terkini/index" 
 	});
 };

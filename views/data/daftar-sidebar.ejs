@@ -1,6 +1,6 @@
 <section id="daftar-container">
     <div class="grid grid-cols-1 gap-4">
-        <% data.articles.slice(0, 6).forEach(item => { %>
+        <% data.articles.slice(0, 10).forEach(item => { %>
 			<a href="/<%= item.link %>" class="group hover:scale-105">
 				<article class="relative">
 					<img src="<%= item.img %>" alt="<%= item.title %>" class="w-full aspect-[16/9] object-cover rounded-t" onerror="this.onerror=null; this.src='/image/no-image.jpg';">
