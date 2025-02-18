@@ -1,4 +1,4 @@
-# News HTML NodeJS
+# News HTMX NodeJS
 
 Building a news portal with HTMX and NodeJS. Without a database, data retrieval uses the scraping method. 
 
